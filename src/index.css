@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-brand: #ea580c;
+  }
+
+  body {
+    @apply bg-slate-950 text-slate-100 font-sans antialiased overflow-x-hidden;
+    background-image: 
+      radial-gradient(at 100% 0%, rgba(234, 88, 12, 0.08) 0px, transparent 50%),
+      radial-gradient(at 0% 100%, rgba(30, 27, 75, 0.25) 0px, transparent 50%);
+    background-attachment: fixed;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0f172a;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ea580c;
+  }
+}
+
+@layer components {
+  .logistics-card {
+    @apply bg-slate-900/90 border border-slate-800/80 rounded-2xl shadow-xl backdrop-blur-sm transition-all duration-200;
+  }
+  
+  .logistics-input {
+    @apply w-full px-4 py-3 bg-slate-950/80 border border-slate-800 rounded-xl text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500 transition-all text-sm sm:text-base;
+  }
+
+  .logistics-badge {
+    @apply inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider;
+  }
+}
+
+/* Pulse animation for stepper and live status indicators */
+@keyframes routePulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(234, 88, 12, 0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 8px rgba(234, 88, 12, 0);
+  }
+}
+
+.animate-route-pulse {
+  animation: routePulse 2s infinite ease-in-out;
+}
